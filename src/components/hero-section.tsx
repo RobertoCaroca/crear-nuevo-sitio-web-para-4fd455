@@ -59,7 +59,7 @@ export function HeroSection() {
   }, [content.reviews.length])
 
   return (
-    <section className="relative h-[100vh] md:h-[70vh] overflow-hidden">
+    <section className="relative h-[80vh] overflow-hidden">
       {/* Dual Videos Desktop / Single Video Mobile */}
       <div className="absolute inset-0">
         {/* Desktop: Split-screen videos */}
@@ -135,16 +135,16 @@ export function HeroSection() {
           <div className="mb-8">
             <div 
               role="tablist" 
-              className="inline-flex bg-[#F5F1E8]/20 backdrop-blur-sm rounded-full p-2 border border-white/20"
+              className="inline-flex bg-[#F5F5F5]/20 backdrop-blur-sm rounded-full p-2 border border-white/20"
             >
               <button
                 role="tab"
                 aria-selected={activeDestination === "patagonia"}
                 onClick={() => setActiveDestination("patagonia")}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-4 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeDestination === "patagonia"
-                    ? "bg-[#D4D4D8] text-[#4A4A4A] shadow-lg"
-                    : "text-[#F5F1E8] hover:bg-white/10"
+                    ? "bg-[#C0C0C0] text-[#E8E0C1] shadow-lg"
+                    : "text-[#F5F5F5] hover:bg-white/10"
                 }`}
               >
                 PATAGONIA
@@ -153,10 +153,10 @@ export function HeroSection() {
                 role="tab"
                 aria-selected={activeDestination === "rio-celeste"}
                 onClick={() => setActiveDestination("rio-celeste")}
-                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-6 py-4 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeDestination === "rio-celeste"
-                    ? "bg-[#87CEEB] text-[#4A4A4A] shadow-lg"
-                    : "text-[#F5F1E8] hover:bg-white/10"
+                    ? "bg-[#A8D8E5] text-[#E8E0C1] shadow-lg"
+                    : "text-[#F5F5F5] hover:bg-white/10"
                 }`}
               >
                 RÍO CELESTE
@@ -165,26 +165,26 @@ export function HeroSection() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-h1 text-[#F5F1E8] font-bold leading-tight">
+          <h1 className="text-h1 text-[#F5F5F5] font-bold leading-tight">
             {content.title}
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-[#F5F1E8] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#F5F5F5] max-w-3xl mx-auto leading-relaxed">
             {content.subtitle}
           </p>
 
           {/* Badges Ecológicos */}
           <div className="flex justify-center gap-4 flex-wrap">
             <div 
-              className="inline-flex items-center gap-2 bg-[#27AE60]/20 backdrop-blur-sm text-[#F5F1E8] px-4 py-2 rounded-full border border-[#27AE60]/30 text-sm cursor-pointer hover:bg-[#27AE60]/30 transition-colors"
+              className="inline-flex items-center gap-2 bg-[#27AE60]/20 backdrop-blur-sm text-[#F5F5F5] px-4 py-2 rounded-full border border-[#27AE60]/30 text-sm cursor-pointer hover:bg-[#27AE60]/30 transition-colors"
               title="Certificado Green Key"
             >
               <div className="w-2 h-2 bg-[#27AE60] rounded-full"></div>
               Green Key Certified
             </div>
             <div 
-              className="inline-flex items-center gap-2 bg-[#27AE60]/20 backdrop-blur-sm text-[#F5F1E8] px-4 py-2 rounded-full border border-[#27AE60]/30 text-sm cursor-pointer hover:bg-[#27AE60]/30 transition-colors"
+              className="inline-flex items-center gap-2 bg-[#27AE60]/20 backdrop-blur-sm text-[#F5F5F5] px-4 py-2 rounded-full border border-[#27AE60]/30 text-sm cursor-pointer hover:bg-[#27AE60]/30 transition-colors"
               title="100% Carbon Neutral"
             >
               <div className="w-2 h-2 bg-[#27AE60] rounded-full"></div>
@@ -196,7 +196,7 @@ export function HeroSection() {
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="bg-[#10B981] hover:bg-[#2D5F4F] text-[#F5F1E8] px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-[#A7C6A3] hover:bg-[#4B8B6A] text-[#E8E0C1] px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
               onClick={() => setShowBookingOverlay(true)}
             >
               Reservar Ahora
@@ -204,7 +204,7 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="border-[#F5F1E8] text-[#F5F1E8] hover:bg-[#F5F1E8] hover:text-[#4A4A4A] px-8 py-4 text-lg font-medium transition-all duration-300"
+              className="border-[#F5F5F5] text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#E8E0C1] px-8 py-4 text-lg font-medium transition-all duration-300"
               onClick={() => window.open(content.landingUrl, '_blank')}
             >
               {content.ctaSecondary}
@@ -213,7 +213,7 @@ export function HeroSection() {
 
           {/* Trust Signals - Reviews Carousel */}
           <div className="mt-8">
-            <div className="inline-flex items-center gap-6 bg-[#F5F1E8]/10 backdrop-blur-sm rounded-full px-6 py-4 border border-white/20">
+            <div className="inline-flex items-center gap-6 bg-[#F5F5F5]/10 backdrop-blur-sm rounded-full px-6 py-4 border border-white/20">
               {/* Rating */}
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -223,16 +223,16 @@ export function HeroSection() {
                     </svg>
                   ))}
                 </div>
-                <span className="text-[#F5F1E8] text-sm font-medium">4.8</span>
+                <span className="text-[#F5F5F5] text-sm font-medium">4.8</span>
               </div>
               
               {/* Review Text */}
-              <div className="text-[#F5F1E8] text-sm max-w-xs">
+              <div className="text-[#F5F5F5] text-sm max-w-xs">
                 "{content.reviews[currentReview].text}" - {content.reviews[currentReview].author}
               </div>
               
               {/* Badges */}
-              <div className="text-[#F5F1E8] text-xs">
+              <div className="text-[#F5F5F5] text-xs">
                 TripAdvisor • Cancelación Gratis
               </div>
             </div>
@@ -243,18 +243,18 @@ export function HeroSection() {
       {/* Booking Overlay */}
       {showBookingOverlay && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[#F5F1E8] rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+          <div className="bg-[#F5F5F5] rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
             <button
               onClick={() => setShowBookingOverlay(false)}
-              className="absolute top-4 right-4 text-[#4A4A4A] hover:text-[#2D5F4F] text-2xl font-bold"
+              className="absolute top-4 right-4 text-[#E8E0C1] hover:text-[#A7C6A3] text-2xl font-bold"
             >
               ×
             </button>
             <div className="mb-4">
-              <h3 className="text-2xl font-bold text-[#4A4A4A] mb-2">
+              <h3 className="text-2xl font-bold text-[#E8E0C1] mb-2">
                 Reservar en {activeDestination === "patagonia" ? "Patagonia" : "Río Celeste"}
               </h3>
-              <p className="text-[#4A4A4A]">Selecciona fechas y personaliza tu estadía</p>
+              <p className="text-[#E8E0C1]">Selecciona fechas y personaliza tu estadía</p>
             </div>
             <BookingEngine destination={activeDestination} />
           </div>

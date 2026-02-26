@@ -92,7 +92,7 @@ const BookingEngine = React.forwardRef<HTMLDivElement, BookingEngineProps>(
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Pre-filled destination indicator */}
           {destination && (
-            <div className="bg-[#10B981]/10 border border-[#10B981]/20 rounded-lg p-3 mb-4">
+            <div className="bg-[#10B981]/10 border border-[#10B981]/20 rounded-lg p-4 mb-4">
               <div className="flex items-center gap-2 text-[#2D5F4F]">
                 <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
                 <span className="text-sm font-medium">

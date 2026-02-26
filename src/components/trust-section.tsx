@@ -118,7 +118,7 @@ export function TrustSection() {
             <div className="relative bg-[#D4D4D8]/30 rounded-xl p-6 min-h-[200px]">
               <div className="space-y-4">
                 {/* Avatar and Info */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                   <img
                     src={testimonials[currentTestimonial].avatar}
                     alt={testimonials[currentTestimonial].name}
@@ -185,7 +185,7 @@ export function TrustSection() {
                   </h4>
                   
                   {/* Tooltip on hover */}
-                  <div className="absolute invisible group-hover:visible bg-[#4A4A4A] text-[#F5F1E8] text-small p-3 rounded-lg shadow-lg -top-2 left-0 right-0 z-10 transform -translate-y-full">
+                  <div className="absolute invisible group-hover:visible bg-[#4A4A4A] text-[#F5F1E8] text-small p-4 rounded-lg shadow-lg -top-2 left-0 right-0 z-10 transform -translate-y-full">
                     {cert.description}
                     <div className="absolute top-full left-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-[#4A4A4A]"></div>
                   </div>

@@ -11,11 +11,11 @@
   --font-heading: var(--font-montserrat);
   
   /* Auralta Colors for Tailwind */
-  --color-verde-esmeralda: var(--verde-esmeralda);
-  --color-crema-calido: var(--crema-calido);
-  --color-gris-piedra: var(--gris-piedra);
-  --color-azul-celeste: var(--azul-celeste);
-  --color-gris-glaciar: var(--gris-glaciar);
+  --color-verde-suave: var(--verde-suave);
+  --color-gris-palido: var(--gris-palido);
+  --color-beige-neutro: var(--beige-neutro);
+  --color-azul-profundo: var(--azul-profundo);
+  --color-gris-natural: var(--gris-natural);
   --color-oro-suave: var(--oro-suave);
   --color-verde-exito: var(--verde-exito);
   --color-ambar-alerta: var(--ambar-alerta);
@@ -60,15 +60,15 @@
 
 :root {
   --radius: 0.5rem;
-  /* Auralta Hotels Color Palette */
+  /* Auralta Hotels Color Palette - Nueva Guía UI v2.0 */
   /* Primary Colors */
-  --verde-esmeralda: oklch(0.35 0.08 162); /* #2D5F4F */
-  --crema-calido: oklch(0.95 0.02 88); /* #F5F1E8 */
-  --gris-piedra: oklch(0.3 0 0); /* #4A4A4A */
+  --verde-suave: oklch(0.75 0.06 144); /* #A7C6A3 */
+  --gris-palido: oklch(0.96 0 0); /* #F5F5F5 */
+  --beige-neutro: oklch(0.88 0.03 86); /* #E8E0C1 */
   
   /* Secondary Colors */
-  --azul-celeste: oklch(0.78 0.07 215); /* #87CEEB */
-  --gris-glaciar: oklch(0.83 0.005 260); /* #D4D4D8 */
+  --azul-profundo: oklch(0.83 0.05 215); /* #A8D8E5 - Río Celeste */
+  --gris-natural: oklch(0.76 0 0); /* #C0C0C0 */
   --oro-suave: oklch(0.7 0.15 85); /* #D4AF37 */
   
   /* Functional Colors */
@@ -77,72 +77,72 @@
   --rojo-error: oklch(0.55 0.22 25); /* #E74C3C */
   
   /* Mapped to shadcn variables */
-  --background: var(--crema-calido);
-  --foreground: var(--gris-piedra);
+  --background: var(--gris-palido);
+  --foreground: var(--beige-neutro);
   --card: oklch(1 0 0); /* Pure white for cards */
-  --card-foreground: var(--gris-piedra);
+  --card-foreground: var(--beige-neutro);
   --popover: oklch(1 0 0);
-  --popover-foreground: var(--gris-piedra);
-  --primary: var(--verde-esmeralda);
-  --primary-foreground: var(--crema-calido);
-  --secondary: var(--gris-glaciar);
-  --secondary-foreground: var(--gris-piedra);
-  --muted: var(--gris-glaciar);
+  --popover-foreground: var(--beige-neutro);
+  --primary: var(--verde-suave);
+  --primary-foreground: var(--beige-neutro);
+  --secondary: var(--gris-natural);
+  --secondary-foreground: var(--beige-neutro);
+  --muted: var(--gris-natural);
   --muted-foreground: oklch(0.5 0.005 260);
-  --accent: var(--azul-celeste);
+  --accent: var(--azul-profundo);
   --accent-foreground: oklch(1 0 0);
   --destructive: var(--rojo-error);
-  --border: var(--gris-glaciar);
+  --border: var(--gris-natural);
   --input: oklch(1 0 0);
-  --ring: var(--verde-esmeralda);
-  --chart-1: var(--verde-esmeralda);
-  --chart-2: var(--azul-celeste);
+  --ring: var(--verde-suave);
+  --chart-1: var(--verde-suave);
+  --chart-2: var(--azul-profundo);
   --chart-3: var(--oro-suave);
   --chart-4: var(--verde-exito);
   --chart-5: var(--ambar-alerta);
-  --sidebar: var(--crema-calido);
-  --sidebar-foreground: var(--gris-piedra);
-  --sidebar-primary: var(--verde-esmeralda);
-  --sidebar-primary-foreground: var(--crema-calido);
-  --sidebar-accent: var(--gris-glaciar);
-  --sidebar-accent-foreground: var(--gris-piedra);
-  --sidebar-border: var(--gris-glaciar);
-  --sidebar-ring: var(--verde-esmeralda);
+  --sidebar: var(--gris-palido);
+  --sidebar-foreground: var(--beige-neutro);
+  --sidebar-primary: var(--verde-suave);
+  --sidebar-primary-foreground: var(--beige-neutro);
+  --sidebar-accent: var(--gris-natural);
+  --sidebar-accent-foreground: var(--beige-neutro);
+  --sidebar-border: var(--gris-natural);
+  --sidebar-ring: var(--verde-suave);
 }
 
 .dark {
   /* Dark theme adaptation of Auralta Colors */
-  --background: oklch(0.15 0.01 162); /* Dark green-tinted background */
-  --foreground: var(--crema-calido);
-  --card: oklch(0.2 0.01 162);
-  --card-foreground: var(--crema-calido);
-  --popover: oklch(0.2 0.01 162);
-  --popover-foreground: var(--crema-calido);
-  --primary: oklch(0.45 0.08 162); /* Lighter verde esmeralda */
-  --primary-foreground: oklch(0.15 0.01 162);
+  --background: oklch(0.15 0.01 144); /* Dark green-tinted background */
+  --foreground: var(--gris-palido);
+  --card: oklch(0.2 0.01 144);
+  --card-foreground: var(--gris-palido);
+  --popover: oklch(0.2 0.01 144);
+  --popover-foreground: var(--gris-palido);
+  --primary: oklch(0.65 0.05 144); /* Lighter verde suave */
+  --primary-foreground: oklch(0.15 0.01 144);
   --secondary: oklch(0.25 0.005 260);
-  --secondary-foreground: var(--crema-calido);
+  --secondary-foreground: var(--gris-palido);
   --muted: oklch(0.25 0.005 260);
   --muted-foreground: oklch(0.7 0.02 88);
-  --accent: var(--azul-celeste);
-  --accent-foreground: oklch(0.15 0.01 162);
+  --accent: var(--azul-profundo);
+  --accent-foreground: oklch(0.15 0.01 144);
   --destructive: var(--rojo-error);
   --border: oklch(0.3 0.005 260);
-  --input: oklch(0.2 0.01 162);
-  --ring: oklch(0.45 0.08 162);
-  --chart-1: oklch(0.45 0.08 162);
-  --chart-2: var(--azul-celeste);
+  --input: oklch(0.2 0.01 144);
+  --ring: oklch(0.65 0.05 144);
+  --chart-1: oklch(0.65 0.05 144);
+  --chart-2: var(--azul-profundo);
   --chart-3: var(--oro-suave);
   --chart-4: var(--verde-exito);
   --chart-5: var(--ambar-alerta);
-  --sidebar: oklch(0.18 0.01 162);
-  --sidebar-foreground: var(--crema-calido);
-  --sidebar-primary: oklch(0.45 0.08 162);
-  --sidebar-primary-foreground: oklch(0.15 0.01 162);
+  --sidebar: oklch(0.18 0.01 144);
+  --sidebar-foreground: var(--gris-palido);
+  --sidebar-primary: oklch(0.65 0.05 144);
+  --sidebar-primary-foreground: oklch(0.15 0.01 144);
   --sidebar-accent: oklch(0.25 0.005 260);
-  --sidebar-accent-foreground: var(--crema-calido);
+  --sidebar-accent-foreground: var(--gris-palido);
   --sidebar-border: oklch(0.3 0.005 260);
-  --sidebar-ring: oklch(0.45 0.08 162);
+  --sidebar-ring: oklch(0.65 0.05 144);
 }
 
 @layer base {
@@ -164,20 +164,20 @@
     font-family: var(--font-inter), sans-serif;
   }
   
-  /* Typography Scale - Desktop */
+  /* Typography Scale - Desktop - Nueva Guía UI v2.0 */
   .text-h1 {
     font-family: var(--font-montserrat), sans-serif;
-    @apply text-[56px] font-bold leading-[1.2] tracking-tight;
+    @apply text-[48px] font-bold leading-[1.2] tracking-tight;
   }
   
   .text-h2 {
     font-family: var(--font-montserrat), sans-serif;
-    @apply text-[40px] font-bold leading-[1.25] tracking-tight;
+    @apply text-[34px] font-bold leading-[1.25] tracking-tight;
   }
   
   .text-h3 {
     font-family: var(--font-montserrat), sans-serif;
-    @apply text-[28px] font-semibold leading-[1.3];
+    @apply text-[24px] font-semibold leading-[1.3];
   }
   
   .text-body {
@@ -198,15 +198,15 @@
   /* Mobile responsive typography */
   @media (max-width: 768px) {
     .text-h1 {
-      @apply text-[36px] leading-[1.3];
+      @apply text-[32px] leading-[1.3];
     }
     
     .text-h2 {
-      @apply text-[28px] leading-[1.3];
+      @apply text-[26px] leading-[1.3];
     }
     
     .text-h3 {
-      @apply text-[24px] leading-[1.4];
+      @apply text-[20px] leading-[1.4];
     }
   }
 }
