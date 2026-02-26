@@ -7,8 +7,19 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-montserrat);
+  
+  /* Auralta Colors for Tailwind */
+  --color-verde-esmeralda: var(--verde-esmeralda);
+  --color-crema-calido: var(--crema-calido);
+  --color-gris-piedra: var(--gris-piedra);
+  --color-azul-celeste: var(--azul-celeste);
+  --color-gris-glaciar: var(--gris-glaciar);
+  --color-oro-suave: var(--oro-suave);
+  --color-verde-exito: var(--verde-exito);
+  --color-ambar-alerta: var(--ambar-alerta);
+  --color-rojo-error: var(--rojo-error);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -48,72 +59,90 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --radius: 0.5rem;
+  /* Auralta Hotels Color Palette */
+  /* Primary Colors */
+  --verde-esmeralda: oklch(0.35 0.08 162); /* #2D5F4F */
+  --crema-calido: oklch(0.95 0.02 88); /* #F5F1E8 */
+  --gris-piedra: oklch(0.3 0 0); /* #4A4A4A */
+  
+  /* Secondary Colors */
+  --azul-celeste: oklch(0.78 0.07 215); /* #87CEEB */
+  --gris-glaciar: oklch(0.83 0.005 260); /* #D4D4D8 */
+  --oro-suave: oklch(0.7 0.15 85); /* #D4AF37 */
+  
+  /* Functional Colors */
+  --verde-exito: oklch(0.6 0.15 145); /* #27AE60 */
+  --ambar-alerta: oklch(0.7 0.15 65); /* #F39C12 */
+  --rojo-error: oklch(0.55 0.22 25); /* #E74C3C */
+  
+  /* Mapped to shadcn variables */
+  --background: var(--crema-calido);
+  --foreground: var(--gris-piedra);
+  --card: oklch(1 0 0); /* Pure white for cards */
+  --card-foreground: var(--gris-piedra);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --popover-foreground: var(--gris-piedra);
+  --primary: var(--verde-esmeralda);
+  --primary-foreground: var(--crema-calido);
+  --secondary: var(--gris-glaciar);
+  --secondary-foreground: var(--gris-piedra);
+  --muted: var(--gris-glaciar);
+  --muted-foreground: oklch(0.5 0.005 260);
+  --accent: var(--azul-celeste);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: var(--rojo-error);
+  --border: var(--gris-glaciar);
+  --input: oklch(1 0 0);
+  --ring: var(--verde-esmeralda);
+  --chart-1: var(--verde-esmeralda);
+  --chart-2: var(--azul-celeste);
+  --chart-3: var(--oro-suave);
+  --chart-4: var(--verde-exito);
+  --chart-5: var(--ambar-alerta);
+  --sidebar: var(--crema-calido);
+  --sidebar-foreground: var(--gris-piedra);
+  --sidebar-primary: var(--verde-esmeralda);
+  --sidebar-primary-foreground: var(--crema-calido);
+  --sidebar-accent: var(--gris-glaciar);
+  --sidebar-accent-foreground: var(--gris-piedra);
+  --sidebar-border: var(--gris-glaciar);
+  --sidebar-ring: var(--verde-esmeralda);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Dark theme adaptation of Auralta Colors */
+  --background: oklch(0.15 0.01 162); /* Dark green-tinted background */
+  --foreground: var(--crema-calido);
+  --card: oklch(0.2 0.01 162);
+  --card-foreground: var(--crema-calido);
+  --popover: oklch(0.2 0.01 162);
+  --popover-foreground: var(--crema-calido);
+  --primary: oklch(0.45 0.08 162); /* Lighter verde esmeralda */
+  --primary-foreground: oklch(0.15 0.01 162);
+  --secondary: oklch(0.25 0.005 260);
+  --secondary-foreground: var(--crema-calido);
+  --muted: oklch(0.25 0.005 260);
+  --muted-foreground: oklch(0.7 0.02 88);
+  --accent: var(--azul-celeste);
+  --accent-foreground: oklch(0.15 0.01 162);
+  --destructive: var(--rojo-error);
+  --border: oklch(0.3 0.005 260);
+  --input: oklch(0.2 0.01 162);
+  --ring: oklch(0.45 0.08 162);
+  --chart-1: oklch(0.45 0.08 162);
+  --chart-2: var(--azul-celeste);
+  --chart-3: var(--oro-suave);
+  --chart-4: var(--verde-exito);
+  --chart-5: var(--ambar-alerta);
+  --sidebar: oklch(0.18 0.01 162);
+  --sidebar-foreground: var(--crema-calido);
+  --sidebar-primary: oklch(0.45 0.08 162);
+  --sidebar-primary-foreground: oklch(0.15 0.01 162);
+  --sidebar-accent: oklch(0.25 0.005 260);
+  --sidebar-accent-foreground: var(--crema-calido);
+  --sidebar-border: oklch(0.3 0.005 260);
+  --sidebar-ring: oklch(0.45 0.08 162);
 }
 
 @layer base {
@@ -121,6 +150,63 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Auralta Hotels Typography System */
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+  
+  .font-body {
+    font-family: var(--font-inter), sans-serif;
+  }
+  
+  /* Typography Scale - Desktop */
+  .text-h1 {
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-[56px] font-bold leading-[1.2] tracking-tight;
+  }
+  
+  .text-h2 {
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-[40px] font-bold leading-[1.25] tracking-tight;
+  }
+  
+  .text-h3 {
+    font-family: var(--font-montserrat), sans-serif;
+    @apply text-[28px] font-semibold leading-[1.3];
+  }
+  
+  .text-body {
+    font-family: var(--font-inter), sans-serif;
+    @apply text-base leading-[1.6];
+  }
+  
+  .text-small {
+    font-family: var(--font-inter), sans-serif;
+    @apply text-sm leading-[1.5];
+  }
+  
+  .text-label {
+    font-family: var(--font-inter), sans-serif;
+    @apply text-xs font-medium leading-[1.4] uppercase tracking-wide;
+  }
+  
+  /* Mobile responsive typography */
+  @media (max-width: 768px) {
+    .text-h1 {
+      @apply text-[36px] leading-[1.3];
+    }
+    
+    .text-h2 {
+      @apply text-[28px] leading-[1.3];
+    }
+    
+    .text-h3 {
+      @apply text-[24px] leading-[1.4];
+    }
   }
 }
