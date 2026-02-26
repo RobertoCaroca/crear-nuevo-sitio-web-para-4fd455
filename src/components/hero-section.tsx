@@ -7,22 +7,14 @@ import { Button } from "./ui/button"
 type Destination = "patagonia" | "rio-celeste"
 
 interface DestinationContent {
-  title: string
-  subtitle: string
-  video: string
-  videoFallback: string
-  ctaSecondary: string
+  image: string
   landingUrl: string
   reviews: Array<{ text: string; author: string; rating: number }>
 }
 
 const destinationContent: Record<Destination, DestinationContent> = {
   patagonia: {
-    title: "Eco-Glamping Prístino: Patagonia Glaciar",
-    subtitle: "Lujo carbononeutral en santuarios naturales. -10% reserva directa",
-    video: "/videos/patagonia-4k.mp4",
-    videoFallback: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=2560&h=1440&auto=format&fit=crop",
-    ctaSecondary: "Explorar Patagonia",
+    image: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=2560&h=1440&auto=format&fit=crop",
     landingUrl: "/patagonia",
     reviews: [
       { text: "Torres del Paine a metros, experiencia única", author: "Ana M.", rating: 5 },
@@ -30,11 +22,7 @@ const destinationContent: Record<Destination, DestinationContent> = {
     ]
   },
   "rio-celeste": {
-    title: "Eco-Glamping Prístino: Río Celeste Volcánico", 
-    subtitle: "Lujo carbononeutral en santuarios naturales. -10% reserva directa",
-    video: "/videos/rio-celeste-4k.mp4",
-    videoFallback: "https://images.unsplash.com/photo-1544531586-fbd91aaa4424?q=80&w=2560&h=1440&auto=format&fit=crop",
-    ctaSecondary: "Explorar Río Celeste",
+    image: "https://images.unsplash.com/photo-1544531586-fbd91aaa4424?q=80&w=2560&h=1440&auto=format&fit=crop",
     landingUrl: "/rio-celeste",
     reviews: [
       { text: "Aguas termales y canopy, mágico", author: "María L.", rating: 5 },
@@ -44,60 +32,39 @@ const destinationContent: Record<Destination, DestinationContent> = {
 }
 
 export function HeroSection() {
-  const [activeDestination, setActiveDestination] = useState<Destination>("patagonia")
   const [showBookingOverlay, setShowBookingOverlay] = useState(false)
   const [currentReview, setCurrentReview] = useState(0)
 
-  const content = destinationContent[activeDestination]
+  const allReviews = [...destinationContent.patagonia.reviews, ...destinationContent["rio-celeste"].reviews]
 
   // Auto-rotate reviews
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentReview(prev => (prev + 1) % content.reviews.length)
+      setCurrentReview(prev => (prev + 1) % allReviews.length)
     }, 4000)
     return () => clearInterval(interval)
-  }, [content.reviews.length])
+  }, [allReviews.length])
 
   return (
-    <section className="relative h-[80vh] overflow-hidden">
-      {/* Dual Videos Desktop / Single Video Mobile */}
+    <section className="relative h-[70vh] overflow-hidden">
+      {/* Dual Images Desktop / Stack Images Mobile */}
       <div className="absolute inset-0">
-        {/* Desktop: Split-screen videos */}
+        {/* Desktop: Split-screen images */}
         <div className="hidden md:flex h-full">
-          {/* Patagonia Video */}
+          {/* Patagonia Image */}
           <div className="w-1/2 relative overflow-hidden">
-            <video
-              className="w-full h-full object-cover cursor-pointer transition-all duration-300 hover:scale-105"
-              autoPlay
-              muted
-              loop
-              playsInline
-              onClick={() => window.open(destinationContent.patagonia.landingUrl, '_blank')}
-            >
-              <source src={destinationContent.patagonia.video} type="video/mp4" />
-            </video>
             <img
-              src={destinationContent.patagonia.videoFallback}
+              src={destinationContent.patagonia.image}
               alt="Patagonia glaciares y Torres del Paine"
               className="w-full h-full object-cover cursor-pointer transition-all duration-300 hover:scale-105"
               onClick={() => window.open(destinationContent.patagonia.landingUrl, '_blank')}
             />
           </div>
           
-          {/* Río Celeste Video */}
+          {/* Río Celeste Image */}
           <div className="w-1/2 relative overflow-hidden">
-            <video
-              className="w-full h-full object-cover cursor-pointer transition-all duration-300 hover:scale-105"
-              autoPlay
-              muted
-              loop
-              playsInline
-              onClick={() => window.open(destinationContent["rio-celeste"].landingUrl, '_blank')}
-            >
-              <source src={destinationContent["rio-celeste"].video} type="video/mp4" />
-            </video>
             <img
-              src={destinationContent["rio-celeste"].videoFallback}
+              src={destinationContent["rio-celeste"].image}
               alt="Río Celeste volcán, canopy y termales"
               className="w-full h-full object-cover cursor-pointer transition-all duration-300 hover:scale-105"
               onClick={() => window.open(destinationContent["rio-celeste"].landingUrl, '_blank')}
@@ -105,115 +72,85 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Mobile: Single active video */}
-        <div className="md:hidden h-full">
-          <video
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src={content.video} type="video/mp4" />
-          </video>
-          <img
-            src={content.videoFallback}
-            alt={`${activeDestination} experiencia eco-glamping`}
-            className="w-full h-full object-cover"
-          />
+        {/* Mobile: Stacked images */}
+        <div className="md:hidden h-full flex flex-col">
+          <div className="h-1/2 relative overflow-hidden">
+            <img
+              src={destinationContent.patagonia.image}
+              alt="Patagonia glaciares"
+              className="w-full h-full object-cover cursor-pointer"
+              onClick={() => window.open(destinationContent.patagonia.landingUrl, '_blank')}
+            />
+          </div>
+          <div className="h-1/2 relative overflow-hidden">
+            <img
+              src={destinationContent["rio-celeste"].image}
+              alt="Río Celeste volcán"
+              className="w-full h-full object-cover cursor-pointer"
+              onClick={() => window.open(destinationContent["rio-celeste"].landingUrl, '_blank')}
+            />
+          </div>
         </div>
       </div>
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
+      {/* Gradient Overlay - Crema con gradiente negro */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-[#F5F1E8]/20 to-transparent" />
       
       {/* Main Content Overlay */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
-        <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-600">
+        <div className="max-w-5xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-600">
           
-          {/* Toggle Destino Prominente */}
-          <div className="mb-8">
-            <div 
-              role="tablist" 
-              className="inline-flex bg-[#F5F5F5]/20 backdrop-blur-sm rounded-full p-2 border border-white/20"
-            >
-              <button
-                role="tab"
-                aria-selected={activeDestination === "patagonia"}
-                onClick={() => setActiveDestination("patagonia")}
-                className={`px-6 py-4 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeDestination === "patagonia"
-                    ? "bg-[#C0C0C0] text-[#E8E0C1] shadow-lg"
-                    : "text-[#F5F5F5] hover:bg-white/10"
-                }`}
-              >
-                PATAGONIA
-              </button>
-              <button
-                role="tab"
-                aria-selected={activeDestination === "rio-celeste"}
-                onClick={() => setActiveDestination("rio-celeste")}
-                className={`px-6 py-4 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeDestination === "rio-celeste"
-                    ? "bg-[#A8D8E5] text-[#E8E0C1] shadow-lg"
-                    : "text-[#F5F5F5] hover:bg-white/10"
-                }`}
-              >
-                RÍO CELESTE
-              </button>
-            </div>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="text-h1 text-[#F5F5F5] font-bold leading-tight">
-            {content.title}
+          {/* Main Heading - Specification según documento */}
+          <h1 className="text-h1 md:text-[5.5rem] text-white font-bold leading-tight font-heading">
+            Eco-Boutique Luxury: Patagonia o Río Celeste
           </h1>
           
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-[#F5F5F5] max-w-3xl mx-auto leading-relaxed">
-            {content.subtitle}
+          {/* Subtitle - Inter 1.5rem según especificación */}
+          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed font-body">
+            Experiencias inmersivas carbononeutrales en santuarios naturales. -10% directa
           </p>
 
-          {/* Badges Ecológicos */}
-          <div className="flex justify-center gap-4 flex-wrap">
+          {/* Badge Ecológico - Green Key + Carbon Neutral */}
+          <div className="flex justify-center">
             <div 
-              className="inline-flex items-center gap-2 bg-[#27AE60]/20 backdrop-blur-sm text-[#F5F5F5] px-4 py-2 rounded-full border border-[#27AE60]/30 text-sm cursor-pointer hover:bg-[#27AE60]/30 transition-colors"
-              title="Certificado Green Key"
+              className="inline-flex items-center gap-3 bg-[#10B981]/20 backdrop-blur-sm text-white px-6 py-3 rounded-full border border-[#10B981]/30 text-sm cursor-pointer hover:bg-[#10B981]/30 transition-colors"
+              title="Green Key + Carbon Neutral - Hover: impacto destino"
             >
-              <div className="w-2 h-2 bg-[#27AE60] rounded-full"></div>
-              Green Key Certified
-            </div>
-            <div 
-              className="inline-flex items-center gap-2 bg-[#27AE60]/20 backdrop-blur-sm text-[#F5F5F5] px-4 py-2 rounded-full border border-[#27AE60]/30 text-sm cursor-pointer hover:bg-[#27AE60]/30 transition-colors"
-              title="100% Carbon Neutral"
-            >
-              <div className="w-2 h-2 bg-[#27AE60] rounded-full"></div>
-              Carbon Neutral
+              <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
+              <span>Green Key</span>
+              <div className="w-1 h-1 bg-white/50 rounded-full"></div>
+              <span>Carbon Neutral</span>
             </div>
           </div>
           
-          {/* CTAs */}
+          {/* CTAs - Máximo 2 CTAs según especificación */}
           <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+            {/* CTA Primario - Verde Esmeralda */}
             <Button
               size="lg"
-              className="bg-[#A7C6A3] hover:bg-[#4B8B6A] text-[#E8E0C1] px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-[#10B981] hover:bg-[#059669] text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg border-0"
               onClick={() => setShowBookingOverlay(true)}
             >
               Reservar Ahora
             </Button>
+            {/* CTA Secundario - Crema outline */}
             <Button
               variant="outline"
               size="lg"
-              className="border-[#F5F5F5] text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#E8E0C1] px-8 py-4 text-lg font-medium transition-all duration-300"
-              onClick={() => window.open(content.landingUrl, '_blank')}
+              className="border-[#F5F1E8] text-[#F5F1E8] hover:bg-[#F5F1E8] hover:text-black px-8 py-4 text-lg font-medium transition-all duration-300"
+              onClick={() => {
+                const patagoniaBounds = document.querySelector('.md\\:flex')?.children[0]
+                const rioCelesteBounds = document.querySelector('.md\\:flex')?.children[1]
+                patagoniaBounds && rioCelesteBounds && window.scrollBy(0, window.innerHeight * 0.3)
+              }}
             >
-              {content.ctaSecondary}
+              Explorar Destinos
             </Button>
           </div>
 
-          {/* Trust Signals - Reviews Carousel */}
+          {/* Trust Dinámico - Carousel reseñas 4.8★ TripAdvisor */}
           <div className="mt-8">
-            <div className="inline-flex items-center gap-6 bg-[#F5F5F5]/10 backdrop-blur-sm rounded-full px-6 py-4 border border-white/20">
+            <div className="inline-flex items-center gap-6 bg-[#F5F1E8]/10 backdrop-blur-sm rounded-full px-6 py-4 border border-white/20">
               {/* Rating */}
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -223,16 +160,16 @@ export function HeroSection() {
                     </svg>
                   ))}
                 </div>
-                <span className="text-[#F5F5F5] text-sm font-medium">4.8</span>
+                <span className="text-white text-sm font-medium">4.8</span>
               </div>
               
               {/* Review Text */}
-              <div className="text-[#F5F5F5] text-sm max-w-xs">
-                "{content.reviews[currentReview].text}" - {content.reviews[currentReview].author}
+              <div className="text-white text-sm max-w-xs">
+                "{allReviews[currentReview].text}" - {allReviews[currentReview].author}
               </div>
               
               {/* Badges */}
-              <div className="text-[#F5F5F5] text-xs">
+              <div className="text-white text-xs">
                 TripAdvisor • Cancelación Gratis
               </div>
             </div>
@@ -243,20 +180,20 @@ export function HeroSection() {
       {/* Booking Overlay */}
       {showBookingOverlay && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-[#F5F5F5] rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
+          <div className="bg-[#F5F1E8] rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative">
             <button
               onClick={() => setShowBookingOverlay(false)}
-              className="absolute top-4 right-4 text-[#E8E0C1] hover:text-[#A7C6A3] text-2xl font-bold"
+              className="absolute top-4 right-4 text-black hover:text-[#10B981] text-2xl font-bold"
             >
               ×
             </button>
             <div className="mb-4">
-              <h3 className="text-2xl font-bold text-[#E8E0C1] mb-2">
-                Reservar en {activeDestination === "patagonia" ? "Patagonia" : "Río Celeste"}
+              <h3 className="text-2xl font-bold text-black mb-2">
+                Reservar en Patagonia o Río Celeste
               </h3>
-              <p className="text-[#E8E0C1]">Selecciona fechas y personaliza tu estadía</p>
+              <p className="text-black/70">Selecciona fechas y personaliza tu estadía</p>
             </div>
-            <BookingEngine destination={activeDestination} />
+            <BookingEngine />
           </div>
         </div>
       )}
