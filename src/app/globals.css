@@ -146,7 +146,7 @@
   }
   
   .btn-cream-outline {
-    @apply border border-cream-200/30 text-white hover:bg-cream-100/10;
+    @apply border border-white/30 text-white hover:bg-white/10;
     @apply backdrop-blur-sm transition-all duration-300;
   }
   
@@ -158,9 +158,6 @@
     color: #F5F1E8;
   }
   
-  .border-cream-200 {
-    border-color: #F5F1E8;
-  }
 }
 
 @layer utilities {
