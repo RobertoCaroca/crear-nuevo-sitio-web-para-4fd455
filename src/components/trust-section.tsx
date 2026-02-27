@@ -87,7 +87,7 @@ export function TrustSection() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-azul-profundo">
       <div className="container mx-auto px-4 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Calificación y Reseñas */}
@@ -102,9 +102,9 @@ export function TrustSection() {
                   <div className="flex text-[#D4AF37]">
                     {renderStars(5)}
                   </div>
-                  <span className="text-h3 font-bold text-[#4A4A4A]">4.8</span>
+                  <span className="text-h3 font-bold text-white">4.8</span>
                 </div>
-                <p className="text-small text-muted-foreground">
+                <p className="text-small text-white/80">
                   4.8/5 basado en 287 reseñas
                 </p>
               </div>
@@ -115,7 +115,7 @@ export function TrustSection() {
             </Button>
 
             {/* Testimonial Carousel */}
-            <div className="relative bg-[#D4D4D8]/30 rounded-xl p-6 min-h-[200px]">
+            <div className="relative bg-white/10 backdrop-blur-sm rounded-xl p-6 min-h-[200px]">
               <div className="space-y-4">
                 {/* Avatar and Info */}
                 <div className="flex items-center gap-4">
@@ -125,10 +125,10 @@ export function TrustSection() {
                     className="w-8 h-8 rounded-full object-cover"
                   />
                   <div>
-                    <div className="text-label font-medium text-[#4A4A4A]">
+                    <div className="text-label font-medium text-white">
                       {testimonials[currentTestimonial].name}
                     </div>
-                    <div className="text-small text-muted-foreground">
+                    <div className="text-small text-white/70">
                       {testimonials[currentTestimonial].location}
                     </div>
                   </div>
@@ -140,7 +140,7 @@ export function TrustSection() {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-body text-[#4A4A4A] leading-relaxed">
+                <p className="text-body text-white leading-relaxed">
                   "{testimonials[currentTestimonial].text}"
                 </p>
               </div>
@@ -164,7 +164,7 @@ export function TrustSection() {
 
           {/* Certificaciones */}
           <div className="space-y-8">
-            <h3 className="text-h2 text-[#4A4A4A]">
+            <h3 className="text-h2 text-white">
               Certificaciones y Alianzas
             </h3>
             
@@ -172,22 +172,22 @@ export function TrustSection() {
               {certifications.map((cert, index) => (
                 <div 
                   key={index}
-                  className="group relative bg-white rounded-lg p-6 border border-[#D4D4D8] hover:border-[#2D5F4F] transition-all duration-300 hover:shadow-lg"
+                  className="group relative bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 hover:border-verde-suave hover:bg-white/15 transition-all duration-300"
                 >
-                  {/* Logo */}
-                  <div className="text-4xl mb-3">
+                  {/* Logo - Monocromo */}
+                  <div className="text-4xl mb-3 filter grayscale hover:grayscale-0 transition-all duration-300">
                     {cert.logo}
                   </div>
                   
                   {/* Name */}
-                  <h4 className="text-label font-bold text-[#4A4A4A] mb-2">
+                  <h4 className="text-label font-bold text-white mb-2">
                     {cert.name}
                   </h4>
                   
                   {/* Tooltip on hover */}
-                  <div className="absolute invisible group-hover:visible bg-[#4A4A4A] text-[#F5F1E8] text-small p-4 rounded-lg shadow-lg -top-2 left-0 right-0 z-10 transform -translate-y-full">
+                  <div className="absolute invisible group-hover:visible bg-gris-oscuro text-white text-small p-4 rounded-lg shadow-lg -top-2 left-0 right-0 z-10 transform -translate-y-full">
                     {cert.description}
-                    <div className="absolute top-full left-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-[#4A4A4A]"></div>
+                    <div className="absolute top-full left-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gris-oscuro"></div>
                   </div>
                 </div>
               ))}
