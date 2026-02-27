@@ -2,6 +2,7 @@ import { MainNavigation } from "@/components/main-navigation"
 import { HeroSection } from "@/components/hero-section"
 import { QuickCardsSection } from "@/components/quick-cards-section"
 import { TrustSection } from "@/components/trust-section"
+import { BottomSearchEngine } from "@/components/ui/bottom-search-engine"
 
 export default function Home() {
   return (
@@ -17,6 +18,13 @@ export default function Home() {
       
       {/* Trust Section */}
       <TrustSection />
+      
+      {/* Bottom Search Engine */}
+      <section className="py-8 bg-gradient-to-b from-transparent to-gris-palido/50">
+        <div className="container mx-auto px-4 md:px-10">
+          <BottomSearchEngine />
+        </div>
+      </section>
       
       {/* Footer Placeholder */}
       <footer className="bg-[#4A4A4A] text-[#F5F1E8] py-16">
