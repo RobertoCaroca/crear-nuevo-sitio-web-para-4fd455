@@ -218,11 +218,10 @@ const BottomSearchEngine = React.forwardRef<HTMLDivElement, BottomSearchEnginePr
               <Button 
                 type="submit" 
                 className={cn(
-                  "w-full bg-gradient-to-r from-verde-suave to-[#4B8B6A]",
-                  "hover:from-[#4B8B6A] hover:to-[#2D5F4F]",
+                  "w-full bg-verde-exito hover:bg-verde-exito/90",
                   "text-white font-medium px-6 py-2.5 text-sm",
                   "rounded-lg shadow-md transition-all duration-300",
-                  "hover:shadow-lg focus:ring-2 focus:ring-verde-suave/30 focus:outline-none"
+                  "hover:shadow-lg focus:ring-2 focus:ring-verde-exito/30 focus:outline-none"
                 )}
                 aria-describedby="search-button-help"
               >

@@ -4,30 +4,41 @@ import { DestinationSelector } from "@/components/destination-selector"
 import { MiniSearchEngine } from "@/components/mini-search-engine"
 import { SustainabilitySection } from "@/components/sustainability-section"
 import { TrustSection } from "@/components/trust-section"
+import { BottomSearchEngine } from "@/components/ui/bottom-search-engine"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       {/* Navigation */}
       <MainNavigation />
       
-      {/* 1. Hero Dual (Patagonia / Río Celeste) */}
-      <HeroSection />
+      {/* Main Content */}
+      <main className="pb-24"> {/* Bottom padding to prevent overlap with sticky search */}
+        {/* 1. Hero Dual (Patagonia / Río Celeste) */}
+        <HeroSection />
+        
+        {/* 2. Selector Destino */}
+        <DestinationSelector />
+        
+        {/* 3. Mini-buscador */}
+        <MiniSearchEngine />
+        
+        {/* 4. Sostenibilidad */}
+        <SustainabilitySection />
+        
+        {/* 5. Sección de Confianza */}
+        <TrustSection />
+      </main>
       
-      {/* 2. Selector Destino */}
-      <DestinationSelector />
-      
-      {/* 3. Mini-buscador */}
-      <MiniSearchEngine />
-      
-      {/* 4. Sostenibilidad */}
-      <SustainabilitySection />
-      
-      {/* 5. Sección de Confianza */}
-      <TrustSection />
+      {/* Sticky Bottom Search Engine */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-beige-neutro shadow-lg">
+        <div className="container mx-auto px-4 py-4">
+          <BottomSearchEngine className="rounded-xl border-0 shadow-none bg-transparent p-0" />
+        </div>
+      </div>
       
       {/* Footer */}
-      <footer className="bg-gris-oscuro text-white py-16">
+      <footer className="bg-gris-oscuro text-white py-16 relative z-30">
         <div className="container mx-auto px-4 md:px-10 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-8 h-8 bg-verde-suave rounded-lg flex items-center justify-center">

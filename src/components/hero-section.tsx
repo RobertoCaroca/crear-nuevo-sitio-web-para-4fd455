@@ -1,8 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import { Button } from "./ui/button"
-import { SearchEngine } from "./ui/search-engine"
 
 const destinationImages = {
   patagonia: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=2560&h=1440&auto=format&fit=crop",
@@ -10,32 +8,30 @@ const destinationImages = {
 }
 
 export function HeroSection() {
-  const [currentDestination, setCurrentDestination] = useState<'patagonia' | 'rioceleste'>('patagonia')
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentDestination(prev => prev === 'patagonia' ? 'rioceleste' : 'patagonia')
-    }, 8000) // Alternar cada 8 segundos
-
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Alternating Background Images */}
-      <div className="absolute inset-0">
-        <img
-          src={destinationImages[currentDestination]}
-          alt={currentDestination === 'patagonia' 
-            ? "Patagonia glaciares y Torres del Paine" 
-            : "Río Celeste volcán, canopy y termales"
-          }
-          className="w-full h-full object-cover transition-all duration-1000 ease-in-out"
-        />
+      {/* Side-by-side Background Images */}
+      <div className="absolute inset-0 flex">
+        {/* Patagonia Image - Left Half */}
+        <div className="w-1/2 relative">
+          <img
+            src={destinationImages.patagonia}
+            alt="Patagonia glaciares y Torres del Paine"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-transparent" />
+        </div>
+        
+        {/* Río Celeste Image - Right Half */}
+        <div className="w-1/2 relative">
+          <img
+            src={destinationImages.rioceleste}
+            alt="Río Celeste volcán, canopy y termales"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-black/30 via-black/20 to-transparent" />
+        </div>
       </div>
-      
-      {/* Enhanced gradient overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       
       {/* Hero Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4">
