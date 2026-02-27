@@ -56,8 +56,8 @@ export default function Home() {
       <div 
         id="search-engine"
         className={`
-          ${searchEnginePosition === 'sticky' ? 'sticky bottom-4' : 'absolute'}
-          left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-beige-neutro shadow-lg
+          ${searchEnginePosition === 'sticky' ? 'fixed bottom-4' : 'absolute'}
+          left-1/2 transform -translate-x-1/2 z-40 max-w-6xl w-full mx-auto px-4
           transition-all duration-300
         `}
         style={searchEnginePosition === 'absolute' ? { 
@@ -65,9 +65,7 @@ export default function Home() {
           position: 'absolute'
         } : {}}
       >
-        <div className="container mx-auto px-4 py-4">
-          <BottomSearchEngine className="rounded-xl border-0 shadow-none bg-transparent p-0" />
-        </div>
+        <BottomSearchEngine className="rounded-2xl shadow-2xl border border-verde-suave/20 bg-white/95 backdrop-blur-md" />
       </div>
       
       {/* Footer */}

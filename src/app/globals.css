@@ -16,6 +16,7 @@
   --color-beige-neutro: var(--beige-neutro);
   --color-azul-profundo: var(--azul-profundo);
   --color-gris-natural: var(--gris-natural);
+  --color-gris-oscuro: var(--gris-oscuro);
   --color-oro-suave: var(--oro-suave);
   --color-verde-exito: var(--verde-exito);
   --color-ambar-alerta: var(--ambar-alerta);
@@ -69,6 +70,7 @@
   /* Secondary Colors */
   --azul-profundo: oklch(0.83 0.05 215); /* #A8D8E5 - Río Celeste */
   --gris-natural: oklch(0.76 0 0); /* #C0C0C0 */
+  --gris-oscuro: oklch(0.25 0.01 144); /* #3A4A40 - Dark forest green-gray */
   --oro-suave: oklch(0.7 0.15 85); /* #D4AF37 */
   
   /* Functional Colors */
