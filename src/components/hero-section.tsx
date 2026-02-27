@@ -1,6 +1,6 @@
 "use client"
 
-import { SimpleBookingEngine } from "./ui/simple-booking-engine"
+import { SearchEngine } from "./ui/search-engine"
 
 const destinationImages = {
   patagonia: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=2560&h=1440&auto=format&fit=crop",
@@ -34,9 +34,9 @@ export function HeroSection() {
       {/* Subtle gradient overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
       
-      {/* Motor de Búsqueda - Positioned at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-10 p-6 pb-8">
-        <SimpleBookingEngine />
+      {/* Motor de Búsqueda - Positioned at top center */}
+      <div className="absolute top-20 left-0 right-0 z-10 p-6">
+        <SearchEngine />
       </div>
     </section>
   )
