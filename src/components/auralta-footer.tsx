@@ -4,13 +4,13 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { Instagram, Facebook } from "lucide-react"
 
-export interface AuraltaFooterProps {
+export interface AuraltaFooterProps extends React.HTMLAttributes<HTMLElement> {
   className?: string
 }
 
-export function AuraltaFooter({ className }: AuraltaFooterProps) {
+export function AuraltaFooter({ className, ...props }: AuraltaFooterProps) {
   return (
-    <footer className={cn("bg-[var(--verde-oscuro-profundo)] text-white", className)}>
+    <footer className={cn("bg-[var(--verde-oscuro-profundo)] text-white", className)} {...props}>
       {/* Main Footer Content */}
       <div className="container mx-auto px-5 md:px-10 py-10 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 max-w-[1200px] mx-auto">
