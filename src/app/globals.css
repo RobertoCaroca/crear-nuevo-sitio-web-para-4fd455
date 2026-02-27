@@ -21,6 +21,15 @@
   --color-verde-exito: var(--verde-exito);
   --color-ambar-alerta: var(--ambar-alerta);
   --color-rojo-error: var(--rojo-error);
+  
+  /* Header & Footer Colors for Tailwind */
+  --color-verde-esmeralda: var(--verde-esmeralda);
+  --color-verde-esmeralda-hover: var(--verde-esmeralda-hover);
+  --color-verde-oscuro-profundo: var(--verde-oscuro-profundo);
+  --color-verde-mas-oscuro: var(--verde-mas-oscuro);
+  --color-blanco: var(--blanco);
+  --color-blanco-medio: var(--blanco-medio);
+  --color-blanco-bajo: var(--blanco-bajo);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -66,6 +75,15 @@
   --verde-suave: oklch(0.75 0.06 144); /* #A7C6A3 */
   --gris-palido: oklch(0.96 0 0); /* #F5F5F5 */
   --beige-neutro: oklch(0.88 0.03 86); /* #E8E0C1 */
+  
+  /* Header & Footer Design System Colors */
+  --verde-esmeralda: #2E7D52; /* Verde esmeralda - CTA y acentos */
+  --verde-esmeralda-hover: #245F40; /* Verde esmeralda hover */
+  --verde-oscuro-profundo: #1A2E2A; /* Verde oscuro profundo - texto sticky, fondo footer */
+  --verde-mas-oscuro: #142320; /* Más oscuro para subfooter */
+  --blanco: #FFFFFF; /* Blanco puro */
+  --blanco-medio: rgba(255,255,255,0.65); /* Links secundarios footer */
+  --blanco-bajo: rgba(255,255,255,0.45); /* Textos legales subfooter */
   
   /* Secondary Colors */
   --azul-profundo: oklch(0.83 0.05 215); /* #A8D8E5 - Río Celeste */
