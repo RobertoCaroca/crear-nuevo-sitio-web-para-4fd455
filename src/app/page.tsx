@@ -1,7 +1,5 @@
 import { MainNavigation } from "@/components/main-navigation"
 import { HeroSection } from "@/components/hero-section"
-import { DestinationSelector } from "@/components/destination-selector"
-import { MiniSearchEngine } from "@/components/mini-search-engine"
 import { SustainabilitySection } from "@/components/sustainability-section"
 import { TrustSection } from "@/components/trust-section"
 import { BottomSearchEngine } from "@/components/ui/bottom-search-engine"
@@ -17,16 +15,10 @@ export default function Home() {
         {/* 1. Hero Dual (Patagonia / Río Celeste) */}
         <HeroSection />
         
-        {/* 2. Selector Destino */}
-        <DestinationSelector />
-        
-        {/* 3. Mini-buscador */}
-        <MiniSearchEngine />
-        
-        {/* 4. Sostenibilidad */}
+        {/* 2. Sostenibilidad */}
         <SustainabilitySection />
         
-        {/* 5. Sección de Confianza */}
+        {/* 3. Sección de Confianza */}
         <TrustSection />
       </main>
       
