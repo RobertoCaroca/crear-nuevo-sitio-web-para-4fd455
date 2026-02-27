@@ -54,10 +54,10 @@ export function AuraltaFooter({ className, ...props }: AuraltaFooterProps) {
               Destinos & Experiencias
             </h3>
             <nav className="space-y-3">
-              <a href="#torres-del-paine" className="block text-[var(--blanco-medio)] text-sm font-body hover:text-white transition-colors duration-200">
+              <a href="/patagonia" className="block text-[var(--blanco-medio)] text-sm font-body hover:text-white transition-colors duration-200">
                 Torres del Paine
               </a>
-              <a href="#rio-celeste" className="block text-[var(--blanco-medio)] text-sm font-body hover:text-white transition-colors duration-200">
+              <a href="/rio-celeste" className="block text-[var(--blanco-medio)] text-sm font-body hover:text-white transition-colors duration-200">
                 Río Celeste
               </a>
               <a href="#experiencias" className="block text-[var(--blanco-medio)] text-sm font-body hover:text-white transition-colors duration-200">

@@ -21,6 +21,12 @@
   --color-verde-exito: var(--verde-exito);
   --color-ambar-alerta: var(--ambar-alerta);
   --color-rojo-error: var(--rojo-error);
+
+  /* Patagonia Colors for Tailwind */
+  --color-gris-medio: var(--gris-medio);
+  --color-acento-patagonia: var(--acento-patagonia);
+  --color-apoyo-niebla: var(--apoyo-niebla);
+  --color-overlay-patagonico: var(--overlay-patagonico);
   
   /* Header & Footer Colors for Tailwind */
   --color-verde-esmeralda: var(--verde-esmeralda);
@@ -90,6 +96,12 @@
   --gris-natural: oklch(0.76 0 0); /* #C0C0C0 */
   --gris-oscuro: oklch(0.25 0.01 144); /* #3A4A40 - Dark forest green-gray */
   --oro-suave: oklch(0.7 0.15 85); /* #D4AF37 */
+
+  /* Patagonia Specific Colors - From Design Guide */
+  --gris-medio: #6B6B6B; /* Gris Medio - Subtítulos, etiquetas */
+  --acento-patagonia: #3D6B7A; /* Azul pizarra glaciar - CTAs, highlights */
+  --apoyo-niebla: #C9D4D8; /* Separadores, bordes sutiles, fondos alternativos */
+  --overlay-patagonico: rgba(20, 30, 40, 0.40); /* Overlay sobre imágenes - más frío y denso */
   
   /* Functional Colors */
   --verde-exito: oklch(0.6 0.15 145); /* #27AE60 */

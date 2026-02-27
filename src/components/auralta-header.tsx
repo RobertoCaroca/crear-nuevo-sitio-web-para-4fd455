@@ -22,8 +22,8 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
   }, [])
 
   const navigationItems = [
-    { href: "#patagonia", label: "Patagonia" },
-    { href: "#rio-celeste", label: "Río Celeste" }
+    { href: "/patagonia", label: "Patagonia" },
+    { href: "/rio-celeste", label: "Río Celeste" }
   ]
 
   return (
@@ -41,31 +41,33 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
           
           {/* Logo - SVG placeholder for now, white/dark versions */}
           <div className="flex items-center">
-            <svg 
-              width="32" 
-              height="32" 
-              viewBox="0 0 32 32" 
-              className="max-h-8"
-              aria-label="Auralta Hotels Logo"
-            >
-              <rect 
+            <a href="/" aria-label="Auralta Hotels - Ir al inicio">
+              <svg 
                 width="32" 
                 height="32" 
-                rx="4" 
-                fill={isScrolled ? "#2D2D2D" : "#FFFFFF"}
-              />
-              <text 
-                x="16" 
-                y="20" 
-                textAnchor="middle" 
-                fontSize="14" 
-                fontWeight="bold"
-                fill={isScrolled ? "#FFFFFF" : "#2D2D2D"}
-                fontFamily="Inter, sans-serif"
+                viewBox="0 0 32 32" 
+                className="max-h-8 cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                aria-label="Auralta Hotels Logo"
               >
-                A
-              </text>
-            </svg>
+                <rect 
+                  width="32" 
+                  height="32" 
+                  rx="4" 
+                  fill={isScrolled ? "#2D2D2D" : "#FFFFFF"}
+                />
+                <text 
+                  x="16" 
+                  y="20" 
+                  textAnchor="middle" 
+                  fontSize="14" 
+                  fontWeight="bold"
+                  fill={isScrolled ? "#FFFFFF" : "#2D2D2D"}
+                  fontFamily="Inter, sans-serif"
+                >
+                  A
+                </text>
+              </svg>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
