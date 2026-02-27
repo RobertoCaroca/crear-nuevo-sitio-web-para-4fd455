@@ -4,6 +4,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "./button"
 import { Input, Select, Label } from "./input"
+import { DateRangePicker } from "./date-range-picker"
 import { Plus, Minus, MapPin, Calendar, Users, Mountain, Trees } from "lucide-react"
 
 export interface SearchEngineProps {
@@ -155,67 +156,18 @@ const SearchEngine = React.forwardRef<HTMLDivElement, SearchEngineProps>(
               )}
             </div>
 
-            {/* Check-in Date */}
-            <div className="flex-1 lg:min-w-[160px] space-y-2">
-              <Label 
-                htmlFor="checkin" 
-                className="flex items-center gap-2 text-[#6B6B6B] font-body font-medium text-[11px] tracking-wide uppercase"
-              >
-                <Calendar className="w-3 h-3 text-[#A7C6A3]" aria-hidden="true" />
-                Check-in
-              </Label>
-              <Input
-                id="checkin"
-                type="date"
-                min={today}
-                value={checkIn}
-                onChange={(e) => setCheckIn(e.target.value)}
-                error={errors.checkIn}
-                className={cn(
-                  "bg-white border-2 border-[#A7C6A3]/30 rounded-lg",
-                  "focus:border-[#A7C6A3] focus:ring-[#A7C6A3]/20 focus:ring-2",
-                  "text-[#2D5F4F] font-heading text-[15px] font-normal py-3 px-4",
-                  "transition-all duration-300 hover:border-[#A7C6A3]/50"
-                )}
-                aria-describedby={errors.checkIn ? "checkin-error" : undefined}
-              />
-              {errors.checkIn && (
-                <p id="checkin-error" role="alert" className="text-[#E74C3C] text-xs mt-1">
-                  {errors.checkIn}
-                </p>
-              )}
-            </div>
-
-            {/* Check-out Date */}
-            <div className="flex-1 lg:min-w-[160px] space-y-2">
-              <Label 
-                htmlFor="checkout" 
-                className="flex items-center gap-2 text-[#6B6B6B] font-body font-medium text-[11px] tracking-wide uppercase"
-              >
-                <Calendar className="w-3 h-3 text-[#A7C6A3]" aria-hidden="true" />
-                Check-out
-              </Label>
-              <Input
-                id="checkout"
-                type="date"
-                min={minCheckOut}
-                value={checkOut}
-                onChange={(e) => setCheckOut(e.target.value)}
-                error={errors.checkOut}
-                className={cn(
-                  "bg-white border-2 border-[#A7C6A3]/30 rounded-lg",
-                  "focus:border-[#A7C6A3] focus:ring-[#A7C6A3]/20 focus:ring-2",
-                  "text-[#2D5F4F] font-heading text-[15px] font-normal py-3 px-4",
-                  "transition-all duration-300 hover:border-[#A7C6A3]/50"
-                )}
-                aria-describedby={errors.checkOut ? "checkout-error" : undefined}
-              />
-              {errors.checkOut && (
-                <p id="checkout-error" role="alert" className="text-[#E74C3C] text-xs mt-1">
-                  {errors.checkOut}
-                </p>
-              )}
-            </div>
+            {/* Date Range Picker - Calendario integrado */}
+            <DateRangePicker
+              checkIn={checkIn}
+              checkOut={checkOut}
+              onCheckInChange={setCheckIn}
+              onCheckOutChange={setCheckOut}
+              errors={{
+                checkIn: errors.checkIn,
+                checkOut: errors.checkOut
+              }}
+              className="lg:min-w-[340px]"
+            />
 
             {/* Passengers Counter */}
             <div className="flex-1 lg:min-w-[180px] space-y-2">
