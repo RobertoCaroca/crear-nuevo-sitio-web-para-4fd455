@@ -14,7 +14,7 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      setIsScrolled(window.scrollY > 0)
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -29,34 +29,43 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
   return (
     <header
       className={cn(
-        "sticky top-0 z-[100] transition-all duration-300 ease-out",
+        "fixed top-0 w-full z-[100] transition-all duration-300 ease-out",
         isScrolled 
-          ? "bg-white shadow-[0_2px_12px_rgba(0,0,0,0.08)]" 
+          ? "bg-white shadow-[0_1px_8px_rgba(0,0,0,0.06)]" 
           : "bg-transparent",
         className
       )}
     >
-      <div className="container mx-auto px-5 md:px-10">
+      <div className="px-5 md:px-10">
         <div className="flex items-center justify-between h-[60px] md:h-[72px]">
           
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className={cn(
-              "w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-300",
-              isScrolled 
-                ? "bg-[var(--verde-oscuro-profundo)]" 
-                : "bg-[var(--verde-oscuro-profundo)]"
-            )}>
-              <span className="text-white font-bold text-lg font-heading">A</span>
-            </div>
-            <span className={cn(
-              "font-heading font-bold text-xl transition-colors duration-300",
-              isScrolled 
-                ? "text-[var(--verde-oscuro-profundo)]" 
-                : "text-white"
-            )}>
-              Auralta Hotels
-            </span>
+          {/* Logo - SVG placeholder for now, white/dark versions */}
+          <div className="flex items-center">
+            <svg 
+              width="32" 
+              height="32" 
+              viewBox="0 0 32 32" 
+              className="max-h-8"
+              aria-label="Auralta Hotels Logo"
+            >
+              <rect 
+                width="32" 
+                height="32" 
+                rx="4" 
+                fill={isScrolled ? "#2D2D2D" : "#FFFFFF"}
+              />
+              <text 
+                x="16" 
+                y="20" 
+                textAnchor="middle" 
+                fontSize="14" 
+                fontWeight="bold"
+                fill={isScrolled ? "#FFFFFF" : "#2D2D2D"}
+                fontFamily="Inter, sans-serif"
+              >
+                A
+              </text>
+            </svg>
           </div>
 
           {/* Desktop Navigation */}
@@ -66,13 +75,12 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "font-heading font-normal text-sm tracking-[0.5px] transition-colors duration-200 relative py-2",
-                  "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-black after:transition-all after:duration-200",
-                  "hover:after:w-full hover:text-black",
+                  "font-light text-sm tracking-[0.5px] transition-all duration-200 hover:opacity-60",
                   isScrolled 
-                    ? "text-black" 
+                    ? "text-[#2D2D2D]" 
                     : "text-white"
                 )}
+                style={{ fontFamily: 'Inter, sans-serif' }}
               >
                 {item.label}
               </a>
@@ -81,7 +89,8 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
 
           {/* Desktop CTA Button */}
           <button
-            className="hidden md:block bg-[var(--verde-esmeralda)] hover:bg-[var(--verde-esmeralda-hover)] text-white font-heading font-bold text-sm px-6 py-2.5 rounded-md transition-colors duration-200"
+            className="hidden md:block bg-[#4A7C59] hover:bg-[rgba(74,124,89,0.85)] text-white text-sm px-6 py-2.5 rounded transition-colors duration-200"
+            style={{ fontFamily: 'Inter, sans-serif', fontWeight: '400' }}
             aria-label="Ir a reservar"
           >
             Reservar
@@ -90,8 +99,8 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
           {/* Mobile Menu Toggle */}
           <button
             className={cn(
-              "md:hidden flex flex-col items-center justify-center w-6 h-6 transition-colors duration-300",
-              isScrolled ? "text-[var(--verde-oscuro-profundo)]" : "text-white"
+              "md:hidden w-6 h-6 transition-colors duration-300 flex items-center justify-center",
+              isScrolled ? "text-[#2D2D2D]" : "text-white"
             )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
@@ -116,13 +125,18 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
           />
           
           {/* Mobile Panel */}
-          <div className="fixed top-[60px] right-0 bottom-0 w-full max-w-sm bg-[var(--verde-oscuro-profundo)] z-50 md:hidden">
-            <nav className="flex flex-col p-6 space-y-6">
+          <div className="fixed top-[60px] right-0 bottom-0 w-full max-w-sm bg-[#2D2D2D] z-50 md:hidden">
+            <nav className="flex flex-col p-6 space-y-12">
               {navigationItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-white font-heading font-semibold text-lg py-3 border-b border-white/10 transition-colors duration-200 hover:text-[var(--verde-esmeralda)]"
+                  className="text-white font-light text-lg transition-colors duration-200 hover:opacity-60"
+                  style={{ 
+                    fontFamily: 'Inter, sans-serif', 
+                    fontSize: '18px',
+                    marginTop: '48px'
+                  }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -131,7 +145,8 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
               
               {/* Mobile CTA Button */}
               <button
-                className="mt-8 bg-[var(--verde-esmeralda)] hover:bg-[var(--verde-esmeralda-hover)] text-white font-heading font-bold text-sm py-3 px-6 rounded-md transition-colors duration-200 w-full"
+                className="mt-8 bg-[#4A7C59] hover:bg-[rgba(74,124,89,0.85)] text-white text-sm py-3 px-6 rounded transition-colors duration-200 w-full"
+                style={{ fontFamily: 'Inter, sans-serif', fontWeight: '400' }}
                 onClick={() => setMobileMenuOpen(false)}
                 aria-label="Ir a reservar"
               >

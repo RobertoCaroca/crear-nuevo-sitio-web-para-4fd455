@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "./ui/button"
+import { BottomSearchEngine } from "./ui/bottom-search-engine"
 
 const destinationImages = {
   patagonia: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=2560&h=1440&auto=format&fit=crop",
@@ -9,48 +9,50 @@ const destinationImages = {
 
 export function HeroSection() {
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Side-by-side Background Images */}
-      <div className="absolute inset-0 flex">
-        {/* Patagonia Image - Left Half */}
-        <div className="w-1/2 relative">
+    <section className="relative h-screen flex flex-col">
+      
+      {/* Hero Images - 85vh */}
+      <div className="h-[85vh] flex flex-col md:flex-row">
+        {/* Patagonia Image - Left Half (Desktop) / Top Half (Mobile) */}
+        <div 
+          className="w-full md:w-1/2 h-1/2 md:h-full relative cursor-pointer group"
+          onClick={() => window.location.href = '/patagonia'}
+          role="button"
+          tabIndex={0}
+          aria-label="Ver hoteles en Patagonia"
+        >
           <img
             src={destinationImages.patagonia}
             alt="Patagonia glaciares y Torres del Paine"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-black/35 group-hover:bg-black/30 transition-colors duration-300" />
         </div>
         
-        {/* Río Celeste Image - Right Half */}
-        <div className="w-1/2 relative">
+        {/* Río Celeste Image - Right Half (Desktop) / Bottom Half (Mobile) */}
+        <div 
+          className="w-full md:w-1/2 h-1/2 md:h-full relative cursor-pointer group"
+          onClick={() => window.location.href = '/rio-celeste'}
+          role="button"
+          tabIndex={0}
+          aria-label="Ver hoteles en Río Celeste"
+        >
           <img
             src={destinationImages.rioceleste}
             alt="Río Celeste volcán, canopy y termales"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/30 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-black/35 group-hover:bg-black/30 transition-colors duration-300" />
         </div>
       </div>
       
-      {/* Hero Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4">
-        {/* Main Title */}
-        <h1 className="text-h1 md:text-[56px] font-heading font-bold text-white mb-6 max-w-4xl leading-tight">
-          Explora la Belleza Prístina de Nuestra Naturaleza
-        </h1>
-        
-        {/* Large CTA Button */}
-        <Button 
-          size="lg"
-          className="bg-verde-suave hover:bg-verde-suave/90 text-gris-oscuro font-heading font-bold px-12 py-6 text-xl rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mb-12"
-          onClick={() => {
-            document.getElementById('search-section')?.scrollIntoView({ behavior: 'smooth' })
-          }}
-        >
-          Reservar Ahora
-        </Button>
+      {/* Bottom Search Engine - 15vh */}
+      <div className="h-[15vh] relative">
+        <div className="absolute bottom-0 left-0 right-0 bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.1)] px-6 md:px-12 py-6">
+          <BottomSearchEngine />
+        </div>
       </div>
+      
     </section>
   )
 }
