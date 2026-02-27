@@ -22,10 +22,8 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
   }, [])
 
   const navigationItems = [
-    { href: "#destinos", label: "Destinos" },
-    { href: "#experiencias", label: "Experiencias" },
-    { href: "#sostenibilidad", label: "Sostenibilidad" },
-    { href: "#nosotros", label: "Nosotros" }
+    { href: "#patagonia", label: "Patagonia" },
+    { href: "#rio-celeste", label: "Río Celeste" }
   ]
 
   return (
@@ -68,12 +66,12 @@ export function AuraltaHeader({ className }: AuraltaHeaderProps) {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "font-heading font-semibold text-sm tracking-[0.5px] transition-colors duration-200 relative py-2",
-                  "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[var(--verde-esmeralda)] after:transition-all after:duration-200",
-                  "hover:after:w-full",
+                  "font-heading font-normal text-sm tracking-[0.5px] transition-colors duration-200 relative py-2",
+                  "after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-black after:transition-all after:duration-200",
+                  "hover:after:w-full hover:text-black",
                   isScrolled 
-                    ? "text-[var(--verde-oscuro-profundo)] hover:text-[var(--verde-esmeralda)]" 
-                    : "text-white hover:text-[var(--verde-esmeralda)]"
+                    ? "text-black" 
+                    : "text-white"
                 )}
               >
                 {item.label}
